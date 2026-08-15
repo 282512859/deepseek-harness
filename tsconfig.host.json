@@ -277,6 +277,7 @@
     { "path": "./packages/preset/tool-preset-switch" },
     { "path": "./packages/guard/repeat-tool-reminder" },
     { "path": "./packages/extensions/cordis-host-runner" },
+    { "path": "./packages/self-modification/tool-selfmod-git" },
     { "path": "./packages/extensions/tool-cordis" },
     { "path": "./packages/hooks/hook-protocol" },
     { "path": "./packages/hooks/hooks-claude-code" },
