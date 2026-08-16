@@ -164,6 +164,7 @@
     { "path": "./packages/session/session-telemetry-otel" },
     { "path": "./packages/core/system-prompt" },
     { "path": "./packages/core/memory-files" },
+    { "path": "./packages/core/task-log" },
     { "path": "./packages/core/agent" },
     { "path": "./packages/core/agent-default-model" },
     { "path": "./packages/interaction/commands" },
