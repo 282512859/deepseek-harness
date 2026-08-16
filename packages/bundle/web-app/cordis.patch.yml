@@ -66,6 +66,10 @@
       config:
         maxNoteBytes: 8192
 
+    # DeepSeek account balance Remote: credentials seam + curl via subprocess.
+    - id: balance-badge
+      name: '@deepseek-ai/dsh-balance-badge'
+
     # Browser Session export: `/export` command plus the shared download dialog.
     - id: session-log-download
       name: '@deepseek-ai/dsh-session-log-export'
@@ -245,6 +249,10 @@
     # assistant-message action strip, over the messageFeedback Remote.
     - id: ui-message-feedback
       name: '@deepseek-ai/dsh-client-ui-message-feedback'
+
+    # DeepSeek account balance: host Remote service plus the composer-row chip.
+    - id: ui-balance-badge
+      name: '@deepseek-ai/dsh-client-ui-balance-badge'
 
     # Model selection: the /model popupSelect + composer seat over session.models.
     - id: ui-model-selection
