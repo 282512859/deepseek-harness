@@ -27,8 +27,8 @@ function stubShell(results: Array<{ exitCode: number; stdout?: string; stderr?: 
         timedOut: false,
         aborted: r.aborted ?? false,
         timeoutMs: 60000,
-        stdout: r.stdout ?? '',
-        stderr: r.stderr ?? '',
+        stdout: { text: r.stdout ?? '', truncated: false },
+        stderr: { text: r.stderr ?? '', truncated: false },
       }
     },
   }
@@ -81,9 +81,9 @@ describe('parseHead and assertRepo', () => {
   })
 
   it('assertRepo throws when rev-parse fails', () => {
-    expect(() => assertRepo({ exitCode: 128, stdout: '', stderr: 'not a repository', aborted: false }))
+    expect(() => assertRepo({ exitCode: 128, signal: null, timedOut: false, aborted: false, timeoutMs: 60000, stdout: { text: '', truncated: false }, stderr: { text: 'not a repository', truncated: false } }))
       .toThrow('not a git repository')
-    expect(() => assertRepo({ exitCode: 0, stdout: 'true', stderr: '', aborted: false })).not.toThrow()
+    expect(() => assertRepo({ exitCode: 0, signal: null, timedOut: false, aborted: false, timeoutMs: 60000, stdout: { text: 'true', truncated: false }, stderr: { text: '', truncated: false } })).not.toThrow()
   })
 })
 

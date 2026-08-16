@@ -191,9 +191,9 @@ export function apply(ctx: Context, config: Config): void {
       let head = ''
       if (commit.exitCode === 0) {
         const log = await runOneFor(cmd(commands, 3), exec)
-        head = parseHead(String(log.stdout ?? '')) ?? ''
+        head = parseHead(log.stdout?.text ?? '') ?? ''
       }
-      return classifyCommit(commit.exitCode ?? -1, String(commit.stderr ?? ''), head)
+      return classifyCommit(commit.exitCode ?? -1, commit.stderr?.text ?? '', head)
     },
   }))
 
@@ -223,7 +223,7 @@ export function apply(ctx: Context, config: Config): void {
       let head = ''
       if (reset.exitCode === 0) {
         const log = await runOneFor(cmd(commands, 2), exec)
-        head = parseHead(String(log.stdout ?? '')) ?? ''
+        head = parseHead(log.stdout?.text ?? '') ?? ''
       }
       return classifyRollback(reset.exitCode ?? -1, head)
     },

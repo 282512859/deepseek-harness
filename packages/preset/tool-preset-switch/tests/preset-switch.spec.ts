@@ -16,10 +16,10 @@ describe('tool-preset-switch registration', () => {
       schema: { required: string[]; properties: Record<string, { type: string }> }
     }
     expect(output.schema.required).toEqual(['switched', 'from', 'to', 'detail'])
-    expect(output.schema.properties.switched.type).toBe('boolean')
-    expect(output.schema.properties.from.type).toBe('string')
-    expect(output.schema.properties.to.type).toBe('string')
-    expect(output.schema.properties.detail.type).toBe('string')
+    expect(output.schema.properties.switched!.type).toBe('boolean')
+    expect(output.schema.properties.from!.type).toBe('string')
+    expect(output.schema.properties.to!.type).toBe('string')
+    expect(output.schema.properties.detail!.type).toBe('string')
     expect(typeof captured?.execute).toBe('function')
     expect(String(captured?.description)).toContain('agent preset')
   })
@@ -110,7 +110,7 @@ describe('execute', () => {
   it('recomposes onto the target and reports the switch', async () => {
     const presets = {
       composedPreset: vi.fn(() => 'standard'),
-      recompose: vi.fn(async () => undefined),
+      recompose: vi.fn(),
     }
     const out = await execute('ptc', presets, scope)
     expect(out).toMatchObject({ switched: true, from: 'standard', to: 'ptc' })
